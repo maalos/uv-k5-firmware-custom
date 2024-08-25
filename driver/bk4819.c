@@ -1807,6 +1807,8 @@ void BK4819_PlayRoger(void)
 		BK4819_PlayRogerNormal();
 	} else if (gEeprom.ROGER == ROGER_MODE_MDC) {
 		BK4819_PlayRogerMDC();
+	} else if (gEeprom.ROGER == ROGER_MODE_AIRPORT) {
+		BK4819_PlayRogerAirport();
 	}
 }
 
