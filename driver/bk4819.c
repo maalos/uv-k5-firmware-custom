@@ -1722,6 +1722,36 @@ static void BK4819_PlayRogerNormal(void)
 	BK4819_WriteRegister(BK4819_REG_30, 0xC1FE);   // 1 1 0000 0 1 1111 1 1 1 0
 }
 
+static void BK4819_PlayRogerAirport(void)
+{
+	BK4819_EnterTxMute();
+	BK4819_SetAF(BK4819_AF_MUTE);
+
+	BK4819_WriteRegister(BK4819_REG_70, BK4819_REG_70_ENABLE_TONE1 | (66u << BK4819_REG_70_SHIFT_TONE1_TUNING_GAIN));
+
+	BK4819_EnableTXLink();
+	SYSTEM_DelayMs(50);
+
+	BK4819_WriteRegister(BK4819_REG_71, scale_freq(511));
+	BK4819_ExitTxMute();
+	SYSTEM_DelayMs(715);
+	BK4819_EnterTxMute();
+
+	BK4819_WriteRegister(BK4819_REG_71, scale_freq(780));
+	BK4819_ExitTxMute();
+	SYSTEM_DelayMs(107);
+	BK4819_EnterTxMute();
+
+	SYSTEM_DelayMs(195);
+
+	BK4819_WriteRegister(BK4819_REG_71, scale_freq(650));
+	BK4819_ExitTxMute();
+	SYSTEM_DelayMs(210);
+	BK4819_EnterTxMute();
+
+	BK4819_WriteRegister(BK4819_REG_70, 0x0000);
+	BK4819_WriteRegister(BK4819_REG_30, 0xC1FE);   // 1 1 0000 0 1 1111 1 1 1 0
+}
 
 void BK4819_PlayRogerMDC(void)
 {
