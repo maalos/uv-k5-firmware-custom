@@ -458,7 +458,7 @@ void DTMF_Reply(void)
 			pString = String;
 			break;
 		case DTMF_BOTH_REPLY_DIRECT:
-			sprintf(String, "%s%c%s", gEeprom.ANI_DTMF_ID, gEeprom.DTMF_SEPARATE_CODE, gDTMF_String);
+			sprintf(String, "%s%c%s", gEeprom.ANI_DTMF_ID, gEeprom.DTMF_SEPARATE_CODE, gDTMF_Callee);
 			pString = String;
 			break;
 #endif
