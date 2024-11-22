@@ -235,7 +235,7 @@ const char* const gSubMenu_MDF[] =
 #endif
 
 #ifdef ENABLE_DTMF_CALLING
-const char gSubMenu_D_RSP[][17] =
+const char gSubMenu_D_RSP[][20] =
 {
 	"DO\nNOTHING",
 	"RING",
