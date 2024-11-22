@@ -235,12 +235,13 @@ const char* const gSubMenu_MDF[] =
 #endif
 
 #ifdef ENABLE_DTMF_CALLING
-const char gSubMenu_D_RSP[][11] =
+const char gSubMenu_D_RSP[][17] =
 {
 	"DO\nNOTHING",
 	"RING",
 	"REPLY",
-	"BOTH"
+	"BOTH",
+	"BOTH WITH\nANI ID"
 };
 #endif
 
