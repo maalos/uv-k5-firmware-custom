@@ -395,11 +395,17 @@ void DTMF_HandleRequest(void)
 
 			switch (gEeprom.DTMF_DECODE_RESPONSE)
 			{
+				case DTMF_DEC_REPLY_DIRECT:
+					[[fallthrough]];
 				case DTMF_DEC_RESPONSE_BOTH:
 					gDTMF_DecodeRingCountdown_500ms = DTMF_decode_ring_countdown_500ms;
 					[[fallthrough]];
 				case DTMF_DEC_RESPONSE_REPLY:
-					gDTMF_ReplyState = DTMF_REPLY_AAAAA;
+					if (gEeprom.DTMF_DECODE_RESPONSE == DTMF_BOTH_REPLY_DIRECT)
+						gDTMF_ReplyState = DTMF_BOTH_REPLY_DIRECT;
+					else
+						gDTMF_ReplyState = DTMF_REPLY_AAAAA;
+					break;
 					break;
 				case DTMF_DEC_RESPONSE_RING:
 					gDTMF_DecodeRingCountdown_500ms = DTMF_decode_ring_countdown_500ms;
@@ -449,6 +455,10 @@ void DTMF_Reply(void)
 
 		case DTMF_REPLY_AAAAA:
 			sprintf(String, "%s%c%s", gEeprom.ANI_DTMF_ID, gEeprom.DTMF_SEPARATE_CODE, "AAAAA");
+			pString = String;
+			break;
+		case DTMF_BOTH_REPLY_DIRECT:
+			sprintf(String, "%s%c%s", gEeprom.ANI_DTMF_ID, gEeprom.DTMF_SEPARATE_CODE, gDTMF_String);
 			pString = String;
 			break;
 #endif

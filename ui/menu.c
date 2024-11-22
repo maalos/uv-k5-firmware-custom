@@ -241,7 +241,7 @@ const char gSubMenu_D_RSP[][17] =
 	"RING",
 	"REPLY",
 	"BOTH",
-	"BOTH WITH\nANI ID"
+	"RING+REPLY\nDIRECTLY"
 };
 #endif
 
