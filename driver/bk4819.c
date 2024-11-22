@@ -1722,7 +1722,7 @@ static void BK4819_PlayRogerNormal(void)
 	BK4819_WriteRegister(BK4819_REG_30, 0xC1FE);   // 1 1 0000 0 1 1111 1 1 1 0
 }
 
-static void BK4819_PlayRogerAirport(void)
+static void BK4819_PlayRogerSepura(void)
 {
 	BK4819_EnterTxMute();
 	BK4819_SetAF(BK4819_AF_MUTE);
@@ -1807,8 +1807,8 @@ void BK4819_PlayRoger(void)
 		BK4819_PlayRogerNormal();
 	} else if (gEeprom.ROGER == ROGER_MODE_MDC) {
 		BK4819_PlayRogerMDC();
-	} else if (gEeprom.ROGER == ROGER_MODE_AIRPORT) {
-		BK4819_PlayRogerAirport();
+	} else if (gEeprom.ROGER == ROGER_MODE_SEPURA) {
+		BK4819_PlayRogerSepura();
 	}
 }
 

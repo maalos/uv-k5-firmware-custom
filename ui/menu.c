@@ -266,7 +266,7 @@ const char gSubMenu_ROGER[][8] =
 	"OFF",
 	"ROGER",
 	"MDC",
-	"AIRPORT"
+	"SEPURA"
 };
 
 const char gSubMenu_RESET[][4] =
