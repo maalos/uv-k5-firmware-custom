@@ -84,7 +84,7 @@ void DTMF_SendEndOfTransmission(void)
 		BK4819_PlaySingleTone(2475, 250, 28, gEeprom.DTMF_SIDE_TONE);
 	else if ((gCurrentVfo->DTMF_PTT_ID_TX_MODE == PTT_ID_TX_DOWN || gCurrentVfo->DTMF_PTT_ID_TX_MODE == PTT_ID_BOTH)
 #ifdef ENABLE_DTMF_CALLING
-		&& gDTMF_CallState == DTMF_CALL_STATE_NONE
+		&& (gDTMF_CallState == DTMF_CALL_STATE_NONE || gDTMF_CallState == DTMF_CALL_STATE_CALL_OUT)
 #endif
 	) {	// end-of-tx
 		if (gEeprom.DTMF_SIDE_TONE) {

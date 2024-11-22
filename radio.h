@@ -38,7 +38,7 @@ enum PTT_ID_t {
 	PTT_ID_TX_UP,      // BEGIN OF TX
 	PTT_ID_TX_DOWN,    // END OF TX
 	PTT_ID_BOTH,       // BOTH
-	PTT_ID_APOLLO      // Apolo quindar tones
+	PTT_ID_APOLLO      // Apollo quindar tones
 };
 typedef enum PTT_ID_t PTT_ID_t;
 
